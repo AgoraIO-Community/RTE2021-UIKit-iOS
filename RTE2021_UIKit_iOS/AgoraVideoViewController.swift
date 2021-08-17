@@ -6,21 +6,19 @@
 //
 
 import UIKit
+import AgoraUIKit_iOS
 
 class AgoraVideoViewController: UIViewController {
     var channel: String
     var appId: String
     var token: String?
+    var agoraViewer: AgoraVideoViewer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let messageLabel = UIButton(type: .custom, primaryAction: .none)
-        messageLabel.setTitle("Add Video Here", for: .normal)
-        messageLabel.setTitleColor(.label, for: .normal)
-        self.view.addSubview(messageLabel)
-        messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        messageLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        messageLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.agoraViewer = AgoraVideoViewer(connectionData: AgoraConnectionData(appId: self.appId, appToken: self.token))
+        self.agoraViewer?.fills(view: self.view)
+        self.agoraViewer?.join(channel: self.channel)
     }
 
     init(appId: String, channel: String, token: String? = nil) {
@@ -37,6 +35,7 @@ class AgoraVideoViewController: UIViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        self.agoraViewer?.exit()
     }
 }
 
