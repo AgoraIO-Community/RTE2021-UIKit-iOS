@@ -35,12 +35,28 @@ class SeeMembersViewController: UIViewController, UIViewControllerTransitioningD
         self.connectAgoraRtm()
     }
 
+    static var labelHeight: CGFloat = 50
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .secondarySystemBackground
+        self.addLabelTitle()
         self.createSpeakerTable()
         self.connectAgoraRtm()
     }
 
+    func addLabelTitle() {
+        let lbl = UILabel()
+        lbl.text = "Tap user to call"
+        self.view.addSubview(lbl)
+        lbl.frame = CGRect(
+            origin: CGPoint(
+                x: 25,
+                y: Int(self.view.safeAreaInsets.top)),
+            size: CGSize(width: self.view.bounds.width - 50, height: 50)
+        )
+        lbl.autoresizingMask = [.flexibleBottomMargin, .flexibleRightMargin]
+    }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("logout")

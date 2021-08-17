@@ -14,11 +14,11 @@
 		F34ED2EB26C2C61D00A057F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F34ED2EA26C2C61D00A057F7 /* Assets.xcassets */; };
 		F34ED2EE26C2C61D00A057F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F34ED2EC26C2C61D00A057F7 /* LaunchScreen.storyboard */; };
 		F34ED2F726C2C68200A057F7 /* AgoraRtmKit in Frameworks */ = {isa = PBXBuildFile; productRef = F34ED2F626C2C68200A057F7 /* AgoraRtmKit */; };
-		F34ED2FA26C2C6C500A057F7 /* AgoraUIKit_iOS in Frameworks */ = {isa = PBXBuildFile; productRef = F34ED2F926C2C6C500A057F7 /* AgoraUIKit_iOS */; };
 		F34F153926C54F7B00CD998C /* AgoraVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F153826C54F7B00CD998C /* AgoraVideoViewController.swift */; };
 		F34F153C26C54FD200CD998C /* SeeMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F153B26C54FD200CD998C /* SeeMembersViewController.swift */; };
 		F34F153E26C5508A00CD998C /* SeeMembersViewController+AgoraRtm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F153D26C5508A00CD998C /* SeeMembersViewController+AgoraRtm.swift */; };
 		F34F154026C5511600CD998C /* SeeMembersViewController+Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F153F26C5511600CD998C /* SeeMembersViewController+Table.swift */; };
+		F3F9E98726CBF51700948EF0 /* AgoraUIKit_iOS in Frameworks */ = {isa = PBXBuildFile; productRef = F3F9E98626CBF51700948EF0 /* AgoraUIKit_iOS */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F34ED2FA26C2C6C500A057F7 /* AgoraUIKit_iOS in Frameworks */,
+				F3F9E98726CBF51700948EF0 /* AgoraUIKit_iOS in Frameworks */,
 				F34ED2F726C2C68200A057F7 /* AgoraRtmKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +109,7 @@
 			name = RTE2021_UIKit_iOS;
 			packageProductDependencies = (
 				F34ED2F626C2C68200A057F7 /* AgoraRtmKit */,
-				F34ED2F926C2C6C500A057F7 /* AgoraUIKit_iOS */,
+				F3F9E98626CBF51700948EF0 /* AgoraUIKit_iOS */,
 			);
 			productName = RTE2021_UIKit_iOS;
 			productReference = F34ED2DE26C2C61900A057F7 /* RTE2021_UIKit_iOS.app */;
@@ -140,7 +140,7 @@
 			mainGroup = F34ED2D526C2C61900A057F7;
 			packageReferences = (
 				F34ED2F526C2C68200A057F7 /* XCRemoteSwiftPackageReference "AgoraRTM_iOS" */,
-				F34ED2F826C2C6C500A057F7 /* XCRemoteSwiftPackageReference "iOS-UIKit" */,
+				F3F9E98526CBF51700948EF0 /* XCRemoteSwiftPackageReference "iOS-UIKit" */,
 			);
 			productRefGroup = F34ED2DF26C2C61900A057F7 /* Products */;
 			projectDirPath = "";
@@ -387,7 +387,7 @@
 				minimumVersion = 1.4.8;
 			};
 		};
-		F34ED2F826C2C6C500A057F7 /* XCRemoteSwiftPackageReference "iOS-UIKit" */ = {
+		F3F9E98526CBF51700948EF0 /* XCRemoteSwiftPackageReference "iOS-UIKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:AgoraIO-Community/iOS-UIKit.git";
 			requirement = {
@@ -403,9 +403,9 @@
 			package = F34ED2F526C2C68200A057F7 /* XCRemoteSwiftPackageReference "AgoraRTM_iOS" */;
 			productName = AgoraRtmKit;
 		};
-		F34ED2F926C2C6C500A057F7 /* AgoraUIKit_iOS */ = {
+		F3F9E98626CBF51700948EF0 /* AgoraUIKit_iOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F34ED2F826C2C6C500A057F7 /* XCRemoteSwiftPackageReference "iOS-UIKit" */;
+			package = F3F9E98526CBF51700948EF0 /* XCRemoteSwiftPackageReference "iOS-UIKit" */;
 			productName = AgoraUIKit_iOS;
 		};
 /* End XCSwiftPackageProductDependency section */

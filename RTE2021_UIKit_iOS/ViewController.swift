@@ -18,8 +18,15 @@ class ViewController: UIViewController {
         let tf = UITextField()
         tf.placeholder = "username"
         tf.borderStyle = .roundedRect
+        tf.autocapitalizationType = .none
         tf.textContentType = .username
         return tf
+    }()
+
+    lazy var inputInstructions: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Input username to continue"
+        return lbl
     }()
 
     lazy var submitButton: UIButton = {
@@ -29,7 +36,7 @@ class ViewController: UIViewController {
         return btn
     }()
     func placeFields() {
-        [self.usernameField, self.submitButton]
+        [self.inputInstructions, self.usernameField, self.submitButton]
             .enumerated().forEach { (idx, field) in
             self.view.addSubview(field)
             field.frame = CGRect(

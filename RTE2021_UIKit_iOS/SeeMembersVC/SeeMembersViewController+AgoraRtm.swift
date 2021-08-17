@@ -5,7 +5,7 @@
 //  Created by Max Cobb on 12/08/2021.
 //
 
-import UIKit.UIAlertController
+import UIKit
 import AgoraRtmKit
 
 extension SeeMembersViewController {

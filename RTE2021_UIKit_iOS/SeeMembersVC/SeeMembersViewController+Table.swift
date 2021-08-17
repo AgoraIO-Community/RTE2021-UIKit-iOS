@@ -8,13 +8,34 @@
 import UIKit
 import AgoraRtmKit
 
+extension UITableView {
+
+    func setEmptyMessage(_ message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = .label
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.sizeToFit()
+
+        self.backgroundView = messageLabel
+        self.separatorStyle = .none
+    }
+
+    func restore() {
+        self.backgroundView = nil
+        self.separatorStyle = .singleLine
+    }
+}
+
 extension SeeMembersViewController: UITableViewDelegate, UITableViewDataSource {
     func createSpeakerTable() {
         let newTable = UITableView()
         self.view.addSubview(newTable)
-        newTable.largeContentTitle = "Online members"
         newTable.frame = self.view.bounds
-        newTable.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        newTable.frame.size.height -= 50
+        newTable.frame.origin.y = 50
+        newTable.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin]
         newTable.delegate = self
         newTable.dataSource = self
         newTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -22,7 +43,13 @@ extension SeeMembersViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.onlineMembers.count
+        if self.onlineMembers.count == 0 {
+            tableView.setEmptyMessage("No users online")
+        } else {
+            tableView.restore()
+        }
+
+        return self.onlineMembers.count
     }
 
     func numberOfSections(in tableView: UITableView) -> Int { 1 }
@@ -33,7 +60,9 @@ extension SeeMembersViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         let rtmId = self.onlineMembers[indexPath.row]
-        cell.textLabel?.text = self.usernameLookups[rtmId]
+        cell.accessoryView = UIImageView(image: UIImage(systemName: "phone"))
+        cell.imageView?.image = UIImage(systemName: "person.circle")
+        cell.textLabel?.text = self.usernameLookups[rtmId] ?? rtmId
         return cell
     }
     /// Tells the delegate a row is selected
