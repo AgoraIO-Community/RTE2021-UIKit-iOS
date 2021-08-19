@@ -12,7 +12,7 @@ import AgoraUIKit_iOS
 
 class ViewController: UIViewController {
 
-    static let appID = <#Agora App ID#>
+    static let appID: String = <#Agora App ID#>
 
     lazy var usernameField: UITextField = {
         let tf = UITextField()
